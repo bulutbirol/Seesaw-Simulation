@@ -86,6 +86,22 @@ function updateWeights() {
         "Right torque: " + torque.rightTorque.toFixed(1);
 }
 
+// Plank tilt
+function updateTilt() {
+    const torque = calculateTorque();
+    let angle = (torque.rightTorque - torque.leftTorque) / 10;
+
+    if (angle > maxAngle) {
+        angle = maxAngle;
+    }
+
+    if (angle < -maxAngle) {
+        angle = -maxAngle;
+    }
+
+    plank.style.transform = "rotate(" + angle + "deg)";
+    tiltAngleText.textContent = angle.toFixed(1) + "°";
+}
 
 // ağırlığı ekleme
 function addWeight(clickX) {
@@ -96,6 +112,7 @@ function addWeight(clickX) {
 
     drawWeights();
     updateWeights();
+    updateTilt();
 }
 
 // Planke tıklanılan yeri bulma
