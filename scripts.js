@@ -37,6 +37,30 @@ function drawWeights() {
         items.appendChild(weightEl);
     }
 }
+
+// Tork hesaplama
+function calculateTorque() {
+    let leftTorque = 0;
+    let rightTorque = 0;
+
+    for (let i = 0; i < placedWeights.length; i++) {
+        const item = placedWeights[i];
+        const distance = Math.abs(item.x - centerX);
+
+        if (item.x < centerX) {
+            leftTorque += item.weight * distance;
+        } else {
+            rightTorque += item.weight * distance;
+        }
+    }
+
+    return {
+        leftTorque,
+        rightTorque
+    };
+}
+
+
 // ağırlık sağ sol hesaplama
 function updateWeights() {
     let leftTotal = 0;
@@ -51,10 +75,17 @@ function updateWeights() {
             rightTotal += item.weight;
         }
     }
-    
+
     leftWeightText.textContent = leftTotal + " kg";
     rightWeightText.textContent = rightTotal + " kg";
+
+    const torque = calculateTorque();
+
+    statusBox.innerHTML =
+        "Left torque: " + torque.leftTorque.toFixed(1) + "<br>" +
+        "Right torque: " + torque.rightTorque.toFixed(1);
 }
+
 
 // ağırlığı ekleme
 function addWeight(clickX) {
