@@ -18,10 +18,6 @@ const storageKey = "seesawData";
 let placedWeights = [];
 let nextWeight = randomWeight();
 
-// Random ağırlık üretimi
-function randomWeight() {
-    return Math.floor(Math.random() * 10) + 1;
-}
 
 function saveData() {
     localStorage.setItem(storageKey, JSON.stringify(placedWeights));
@@ -34,6 +30,12 @@ function loadData() {
         placedWeights = JSON.parse(saved);
     }
 }
+
+// Random ağırlık üretimi
+function randomWeight() {
+    return Math.floor(Math.random() * 10) + 1;
+}
+
 
 function drawWeights() {
     items.innerHTML = "";
@@ -119,17 +121,35 @@ function updateTilt() {
 function addWeight(clickX) {
     placedWeights.push({
         x: clickX,
-        weight: randomWeight()
+        weight: nextWeight
     });
+
+    nextWeight = randomWeight();
 
     drawWeights();
     updateWeights();
     updateTilt();
     saveData();
+
+    nextWeightText.textContent = nextWeight + " kg";
 }
 
 // Planke tıklanılan yeri bulma
 plank.addEventListener("click", function (e) {
     let clickX = e.offsetX;
     addWeight(clickX);
+});
+
+
+// Reset butonu
+resetBtn.addEventListener("click", function () {
+    placedWeights = [];
+    nextWeight = randomWeight();
+
+    saveData();
+    drawWeights();
+    updateWeights();
+    updateTilt();
+
+    nextWeightText.textContent = nextWeight + " kg";
 });
