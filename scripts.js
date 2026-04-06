@@ -37,6 +37,24 @@ function drawWeights() {
         items.appendChild(weightEl);
     }
 }
+// ağırlık sağ sol hesaplama
+function updateWeights() {
+    let leftTotal = 0;
+    let rightTotal = 0;
+
+    for (let i = 0; i < placedWeights.length; i++) {
+        const item = placedWeights[i];
+
+        if (item.x < centerX) {
+            leftTotal += item.weight;
+        } else {
+            rightTotal += item.weight;
+        }
+    }
+    
+    leftWeightText.textContent = leftTotal + " kg";
+    rightWeightText.textContent = rightTotal + " kg";
+}
 
 // ağırlığı ekleme
 function addWeight(clickX) {
@@ -46,6 +64,7 @@ function addWeight(clickX) {
     });
 
     drawWeights();
+    updateWeights();
 }
 
 // Planke tıklanılan yeri bulma
