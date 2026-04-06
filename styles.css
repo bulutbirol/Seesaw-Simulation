@@ -1,0 +1,146 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Verdana, sans-serif;
+  background: #eef1f4;
+  color: #102a43;
+}
+
+.app {
+  margin: 40px auto;
+  padding: 24px;
+  background: #f8f8f9;
+  border: 1px solid #d9dee5;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.card {
+  padding: 18px 12px;
+  text-align: center;
+  background: #f0f2f5;
+  border: 1px solid #d8dde4;
+  border-radius: 8px;
+}
+
+.card span {
+  display: block;
+  font-size: 13px;
+  color: #667085;
+  margin-bottom: 8px;
+}
+
+.card strong {
+  font-size: 18px;
+  color: #102a43;
+}
+
+.scene {
+  position: relative;
+  height: 470px;
+  background: #dde3e7;
+  border: 1px solid #d3d9df;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.seesaw-area {
+  position: absolute;
+  left: 50%;
+  top: 58%;
+  width: 400px;
+  height: 160px;
+  transform: translate(-50%, -50%);
+}
+
+.pivot {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-bottom: 24px solid #334e68;
+}
+
+.plank {
+  position: absolute;
+  left: 0;
+  bottom: 36px;
+  width: 400px;
+  height: 18px;
+  background: #6f5b3f;
+  border: 1px solid #5a4933;
+  transform-origin: center center;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.items {
+  position: absolute;
+  inset: 0;
+}
+
+.weight {
+  position: absolute;
+  bottom: 100%;
+  width: 28px;
+  height: 28px;
+  margin-left: -14px;
+  border-radius: 50%;
+  background: #d64545;
+  border: 2px solid #922d2d;
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-4px);
+}
+
+.ground {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 44px;
+  background: #97a6ab;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  padding: 18px 0;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  background: #102a43;
+  color: white;
+  cursor: pointer;
+}
+
+.statusBox {
+  min-height: 110px;
+  padding: 16px;
+  background: #eef1f4;
+  border: 1px solid #d8dde4;
+  border-radius: 8px;
+  color: #52606d;
+}
