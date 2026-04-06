@@ -4,11 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Seesaw Simulation</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+    <main class="seesaw">
+        <!-- info ui -->
+        <section class="stats">
+            <div class="card">
+                <span>LEFT WEIGHT</span>
+                <strong id="leftWeight">0.0 kg</strong>
+            </div>
+            <div class="card">
+                <span>NEXT WEIGHT</span>
+                <strong id="nextWeight">1 kg</strong>
+            </div>
+            <div class="card">
+                <span>RIGHT WEIGHT</span>
+                <strong id="rightWeight">0.0 kg</strong>
+            </div>
+            <div class="card">
+                <span>TILT ANGLE</span>
+                <strong id="tiltAngle">0.0°</strong>
+            </div>
+        </section>
+
+        <!--seesaw-->
+        <section class="scene">
+            <div class="seesaw-area">
+                <div class="pivot"></div>
+                <div id="plank" class="plank">
+                    <div id="items" class="items"></div>
+                </div>
+            </div>
+            <div class="ground"></div>
+        </section>
+
+        <!--reset tuşu-->
+        <div class="actions">
+            <button id="resetBtn">Reset Seesaw</button>
+        </div>
+
+        <!-- log -->
+        <section id="statusBox" class="statusBox">
+            Click on the plank to place a new weight.
+        </section>
+    </main>
+
     <script src="scripts.js"></script>
 </body>
 
