@@ -153,3 +153,9 @@ resetBtn.addEventListener("click", function () {
 
     nextWeightText.textContent = nextWeight + " kg";
 });
+
+loadData();
+drawWeights();
+updateWeights();
+updateTilt();
+nextWeightText.textContent = nextWeight + " kg";
