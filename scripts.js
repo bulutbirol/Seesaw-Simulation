@@ -23,6 +23,18 @@ function randomWeight() {
     return Math.floor(Math.random() * 10) + 1;
 }
 
+function saveData() {
+    localStorage.setItem(storageKey, JSON.stringify(placedWeights));
+}
+
+function loadData() {
+    const saved = localStorage.getItem(storageKey);
+
+    if (saved) {
+        placedWeights = JSON.parse(saved);
+    }
+}
+
 function drawWeights() {
     items.innerHTML = "";
 
@@ -113,6 +125,7 @@ function addWeight(clickX) {
     drawWeights();
     updateWeights();
     updateTilt();
+    saveData();
 }
 
 // Planke tıklanılan yeri bulma
